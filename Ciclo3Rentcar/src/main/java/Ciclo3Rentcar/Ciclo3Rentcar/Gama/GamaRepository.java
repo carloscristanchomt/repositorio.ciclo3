@@ -1,0 +1,38 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Ciclo3Rentcar.Ciclo3Rentcar.Gama;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+/**
+ *
+ * @author carloscristancho
+ */
+
+@Repository
+public class GamaRepository {
+    @Autowired
+    private GamaInterface crud;
+    
+    public List<Gama> getAll(){
+        return(List<Gama>) crud.findAll();
+    }
+    
+    public Optional <Gama> getGama(int id){
+        return crud.findById(id);
+    }
+    
+    public Gama save(Gama gama){
+        return crud.save(gama);
+    }
+
+    public void delete (Gama gama){
+        crud.delete(gama);
+    }
+    
+}
